@@ -1,5 +1,4 @@
 import mongoose from 'mongoose';
-import { cache } from 'react';
 
 let cached = global.mongoose
 if(!cached) {
@@ -16,6 +15,8 @@ async function connectDB() {
             bufferCommands: false
         }
 
-        cached.promise = mongoose.connect(`${process.env.MONGODB_URI}`)
+        cached.promise = mongoose.connect(`${process.env.MONGODB_URI, opts}`)
     }
 }
+
+export default connectDB;
