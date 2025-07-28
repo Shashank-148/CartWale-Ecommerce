@@ -13,10 +13,11 @@ async function connectDB() {
   if (!cached.promise) {
     const opts = {
       bufferCommands: false,
+      dbName: "cartwale",
     };
 
     cached.promise = mongoose
-      .connect(`${process.env.MONGODB_URI}/cartwale`, opts)
+      .connect(process.env.MONGODB_URI, opts)
       .then((mongoose) => {
         return mongoose;
       });
